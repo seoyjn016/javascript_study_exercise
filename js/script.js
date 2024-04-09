@@ -1,13 +1,17 @@
-let a = 3,
-  b = "3",
-  c = 5,
-  d = 3;
+let num = 9;
 
-console.log(!a == b); // true
-console.log(a === b); // false
-console.log(a != b); // false
-console.log(a !== b); // true
-console.log(a > c); // false
-console.log(a < c); // true
-console.log(a >= c); // false
-console.log(a <= c); // true
+if (num % 2 == 0) {
+  console.log(`${num}은(는) 짝수입니다.`);
+} else {
+  console.log(`${num}은(는) 홀수입니다.`);
+}
+
+// 70점 이상이면 합격, 그렇지 않으면 불합격
+let score = 65;
+
+if (score >= 70) {
+  result = "합격";
+} else {
+  result = "불합격";
+}
+console.log(result);
