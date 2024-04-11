@@ -6,6 +6,22 @@
     <title>자바스크립트 스터디</title>
   </head>
   <body>
-    <script src="js/script.js"></script>
+    <bttton type="button" onclick="changeColor()">색상변경</bttton>
+    <div
+      id="box"
+      style="width: 100px; height: 100px; background-color: green"
+    ></div>
+
+    <script>
+      let box = document.getElementById("box");
+
+      const change = function () {
+        let toggle = false;
+        return function () {
+          box.style.background = toggle ? "blue" : "red";
+          toggle = !toggle;
+        };
+      };
+    </script>
   </body>
 </html>
