@@ -196,3 +196,33 @@ function fnc2() {
 
 - 전역 변수는 어디서나 값이 변경될 수 있기 때문에 보안에 취약하고 예기치 못한 오류를 발생시킬 가능성이 있다.
 - 클로저는 전역 변수가 아닌 변수를 전역 변수와 같은 방식으로 동작하지만, 그 값을 함부로 변경할 수 없도록 변수를 "사유화"할 수 있는 방법을 제공
+
+- 클로저는 함수와 그 함수가 선언 될때의 렉시컬 환경과의 조합이다.
+
+- 리액트를 활용한
+
+```js
+import React, { useState } from "react";
+
+const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  const handleIncrement = () => {
+    // 클릭 이벤트가 발생할 때마다 handleIncrement함수가 실행 된다.
+    // 이 함수는 setCount를 호출하여 현재 count상태를 업데이트 하는데
+    // 여기서 prevCount => prevCount + 1이라는 업데이트 함수를 사용한다.
+    // 이 함수는 현재 상태값을 인자로 받아 새로운 상태값을 반환 하는데
+    // 이 과정에서 클로저를 통해 prevCount의 최신 상태를 참조하고 있다.
+    setCount((prevCount) => prevCount + 1);
+  };
+
+  return (
+    <div>
+      <p>Count: {count}</p>
+      <button onClick={handleIncrement}>증가</button>
+    </div>
+  );
+};
+
+export default Counter;
+```
